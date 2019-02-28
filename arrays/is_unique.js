@@ -14,8 +14,23 @@ const isUnique = (str) => {
   return true;
 }
 
+const isFasterUnique = (str) => {
+  const hashStr = {};
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (hashStr[char]) {
+      return false;
+    } else {
+      hashStr[char] = true;
+    }
+  }
+  console.log(hashStr)
+  return true;
+}
+
 const uniTest = 'abcdefghijklmnop';
 const dupTest = 'abcdefghijka';
 
-console.log(isUnique(uniTest));
-console.log(isUnique(dupTest));
+console.log(isFasterUnique(uniTest));
+console.log(isFasterUnique(dupTest));
